@@ -1,0 +1,15 @@
+<!-- your_template.html -->
+<html>
+<head>
+    <title>Student Data</title>
+</head>
+<body>
+    <h1>Student Data</h1>
+
+    <ul>
+        {% for student in students_data %}
+            <li>{{ student.name }} - {{ student.age }} - {{ student.gender }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
