@@ -23,6 +23,7 @@ router.register(r'student-view-set',StudentViewSet,basename="student")
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home,name='home'),
-    path('post-student/',post_student,name='post_student')
+    path('post-student/',post_student,name='post_student'),
+    path('delete-student/<int:id>/',delete_student,name='delete_student')
 ]
 urlpatterns+=router.urls

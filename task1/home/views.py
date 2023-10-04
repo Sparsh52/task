@@ -43,6 +43,24 @@ def post_student(request):
     })
 
 
+@api_view(["DELETE"])
+def delete_student(request, id):
+    data = Student.objects.get(id=id)
+    print(data)
+    if not hasattr(data, 'id'):
+        return Response({
+            'status': False,
+            'message': 'id is required',
+            'data': {}
+        })
+
+    data.delete()
+
+    return Response({
+        'status': 200,
+        'message': 'Successfully deleted',
+    })
+
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
